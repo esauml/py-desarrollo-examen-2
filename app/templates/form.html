@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block container %}
+    {% from "_macros.html" import render_field %}
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <form class="contact100-form validate-form"
+                  action="/site/formulario"
+                  method="POST">
+                <h3 class="mb-2">Datos personales</h3>
+                <div class="form-group mb-2" data-validate="Ingresa tu matricula">{{ render_field(form.matricula) }}</div>
+                <div class="form-group mb-2" data-validate="Ingresa tu grupo">{{ render_field(form.grupo) }}</div>
+                <div class="form-group mb-2" data-validate="Ingresa tu nombre">{{ render_field(form.nombre) }}</div>
+                <div class="form-group mb-2" data-validate Ingresa tu apellido paterno>{{ render_field(form.apaterno) }}</div>
+                <div class="form-group mb-2" data-validate Ingresa tu apellido materno>{{ render_field(form.amaterno) }}</div>
+                <div class="form-inline">
+                    <label>Fecha de nacimiento</label>
+                    <div class="form-group mb-2">{{ render_field(form.dia) }}</div>
+                    <div class="form-group mb-2">{{ render_field(form.mes) }}</div>
+                    <div class="form-group mb-2">{{ render_field(form.ano) }}</div>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="radio-1">Sexo</label>
+                    {% for subfield in form.sexo %}
+                        <tr>
+                            <td>{{ subfield(class="input-radio100") }}</td>
+                            <td>{{ subfield.label(class="label-radio100") }}</td>
+                        </tr>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+{% endblock container %}

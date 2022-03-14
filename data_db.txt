@@ -1,0 +1,1 @@
+{"matricula": "18002150", "nombre": "esau", "apaterno": "mart", "amaterno": "lop", "grupo": "idgs802", "dia": 22, "mes": 3, "anio": 2000, "sexo": "1", "edad": 21}

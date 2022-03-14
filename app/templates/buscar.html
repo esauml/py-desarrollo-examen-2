@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block container %}
+    <form method="POST" action="/examen/buscar">
+        <div class="form-group mb-2">
+            <label for="matricula">matricula</label>
+            <input type="text"
+                   class="form-control"
+                   id="matricula"
+                   name="matricula"
+                   aria-describedby="matricula"
+                   placeholder="matricula"/>
+        </div>
+        <div class="form-group mb-2">
+            <label for="grupo">Grupo</label>
+            <input type="text"
+                   class="form-control"
+                   id="grupo"
+                   name="grupo"
+                   aria-describedby="grupo"
+                   placeholder="grupo"/>
+        </div>
+        <button type="submit" class="btn btn-primary mb-4">Enviar</button>
+    </form>
+    {% if done %}
+        {% for element in result %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ element.matricula }}</h5>
+                    <p class="card-text">
+                        <span class="mb-1">Hola, {{ element.nombre }} {{ element.apaterno }} {{ element.amaterno }}</span>
+                        <br>
+                        <span class="mb-2">Tienes {{ element.edad }} años</span>
+                        <br>
+                        <span class="mb-1">Tu signo zodiacal chino es: {{ element.signo }}</span>
+                        <span class="mb-1">Calificación : {{ element.score }}</span>
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock container %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block container %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Matricula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apaterno</th>
+                <th scope="col">Amaterno</th>
+                <th scope="col">Grupo</th>
+                <th scope="col">Fecha Nac.</th>
+                <th scope="col">Sexo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in data %}
+                <tr>
+                    <th scope="row">{{ element.matricula }}</th>
+                    <td>{{ element.nombre }}</td>
+                    <td>{{ element.apaterno }}</td>
+                    <td>{{ element.amaterno }}</td>
+                    <td>{{ element.grupo }}</td>
+                    <td>{{ element.dia }}-{{ element.mes }}-{{ element.anio }}</td>
+                    <td>{{ element.sexo }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock container %}
